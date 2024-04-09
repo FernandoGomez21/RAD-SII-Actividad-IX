@@ -55,6 +55,13 @@
     <Compile Include="BaseDatos\Models\Cita.cs" />
     <Compile Include="BaseDatos\Models\Medico.cs" />
     <Compile Include="BaseDatos\Models\Paciente.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repository.cs" />
+    <Compile Include="Core\UnitOfWork.cs" />
+    <Compile Include="DCita.cs" />
+    <Compile Include="DMedico.cs" />
+    <Compile Include="DPaciente.cs" />
     <Compile Include="Migrations\202404092202424_AddTablaMedico.cs" />
     <Compile Include="Migrations\202404092202424_AddTablaMedico.Designer.cs">
       <DependentUpon>202404092202424_AddTablaMedico.cs</DependentUpon>
