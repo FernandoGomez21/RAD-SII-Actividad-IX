@@ -1,6 +1,6 @@
 ﻿namespace RAD_SII_Actividad_IX
 {
-    partial class Form1
+    partial class MenuPrin
     {
         /// <summary>
         /// Variable del diseñador necesaria.

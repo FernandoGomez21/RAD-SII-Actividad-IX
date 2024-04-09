@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RAD_SII_Actividad_IX
 {
-    public partial class Form1 : Form
+    public partial class MenuPrin : Form
     {
-        public Form1()
+        public MenuPrin()
         {
             InitializeComponent();
         }
