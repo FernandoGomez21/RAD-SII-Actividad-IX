@@ -8,7 +8,7 @@ using Datos.Core;
 
 namespace Datos
 {
-    internal class DPaciente
+    public class DPaciente
     {
 
         UnitOfWork _unitOfWork;
