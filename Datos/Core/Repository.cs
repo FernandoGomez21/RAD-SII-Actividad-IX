@@ -9,7 +9,7 @@ namespace Datos.Core
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        public TiendaContext dbcontext;
+        public ClinicaContext dbcontext;
 
         public Repository()
         {

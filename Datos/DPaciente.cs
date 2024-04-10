@@ -41,12 +41,11 @@ namespace Datos
             {
                 var PacienteInDb = _unitOfWork.Repository<Paciente>().Consulta().FirstOrDefault(c => c.PacienteId == paciente.PacienteId);
 
-                if (PacienteInDb == null)
+                if (PacienteInDb != null)
                 {
                     PacienteInDb.Nombres = paciente.Nombres;
                     PacienteInDb.Apellidos = paciente.Apellidos;
                     PacienteInDb.Estado = paciente.Estado;
-
                     _unitOfWork.Repository<Paciente>().Editar(paciente);
                     return _unitOfWork.Guardar();
                 }
@@ -57,10 +56,10 @@ namespace Datos
         public int EliminarPaciente(int pacienteId)
         {
             var PacienteInDb = _unitOfWork.Repository<Paciente>().Consulta().FirstOrDefault(c => c.PacienteId == pacienteId);
-
-            if (PacienteInDb == null)
+            if (PacienteInDb != null)
             {
                 _unitOfWork.Repository<Paciente>().Eliminar(PacienteInDb);
+                return _unitOfWork.Guardar();
             }
             return 0;
         }

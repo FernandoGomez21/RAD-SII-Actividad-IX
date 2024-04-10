@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Datos.BaseDatos.Models;
@@ -29,11 +31,16 @@ namespace Datos
 
         public List<Cita> TodosLasCitas()
         {
-            return _unitOfWork.Repository<Cita>().Consulta().ToList();
+            return _unitOfWork.Repository<Cita>()
+                                        .Consulta()
+                                        .Include(c=> c.Medico)
+                                        .Include(c=>c.Paciente)
+                                        .ToList();
         }
 
         public int GuardarCita(Cita cita)
         {
+            string FechaCita = cita.FechaCita.Year + "-" + cita.FechaCita.Month + "-" + cita.FechaCita.Day;
             if (cita.CitaId == 0)
             {
                 _unitOfWork.Repository<Cita>().Agregar(cita);
@@ -44,13 +51,12 @@ namespace Datos
             {
                 var CitaeInDb = _unitOfWork.Repository<Cita>().Consulta().FirstOrDefault(c => c.CitaId == cita.CitaId);
 
-                if (CitaeInDb == null)
+                if (CitaeInDb != null)
                 {
                     CitaeInDb.MedicoId = cita.MedicoId;
                     CitaeInDb.PacienteId = cita.PacienteId;
                     CitaeInDb.FechaCita = cita.FechaCita;
                     CitaeInDb.Estado = cita.Estado;
-
                     _unitOfWork.Repository<Cita>().Editar(cita);
                     return _unitOfWork.Guardar();
                 }
@@ -61,10 +67,10 @@ namespace Datos
         public int EliminarCita(int citaId)
         {
             var CitaeInDb = _unitOfWork.Repository<Cita>().Consulta().FirstOrDefault(c => c.CitaId == citaId);
-
-            if (CitaeInDb == null)
+            if (CitaeInDb != null)
             {
                 _unitOfWork.Repository<Cita>().Eliminar(CitaeInDb);
+                return _unitOfWork.Guardar();
             }
             return 0;
         }

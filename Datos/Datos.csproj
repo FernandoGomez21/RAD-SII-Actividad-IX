@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202404092205190_AddTablaCita.Designer.cs">
       <DependentUpon>202404092205190_AddTablaCita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404101654478_CambioTablaMedico.cs" />
+    <Compile Include="Migrations\202404101654478_CambioTablaMedico.Designer.cs">
+      <DependentUpon>202404101654478_CambioTablaMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202404092205190_AddTablaCita.resx">
       <DependentUpon>202404092205190_AddTablaCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404101654478_CambioTablaMedico.resx">
+      <DependentUpon>202404101654478_CambioTablaMedico.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

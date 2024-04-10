@@ -14,16 +14,16 @@ namespace Datos.BaseDatos.Models
         public int MedicoId { get; set; }
         [Required]
         [MaxLength(120)]
-        public string Nombres { get; set; }
+        public string Nombre { get; set; }
         [Required]
         [MaxLength (120)]
-        public string Apellidos { get; set; }
+        public string Apellido { get; set; }
         [Required]
         public DateTime FechaIngreso { get; set; }
         public bool Estado {  get; set; }
 
         [NotMapped]
-        public string MedicoCombo => $"{Nombres} - {Apellidos}";
+        public string MedicoCombo => $"{Nombre} - {Apellido}";
 
     }
 }

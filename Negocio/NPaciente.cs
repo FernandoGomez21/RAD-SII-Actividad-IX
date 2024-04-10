@@ -33,7 +33,7 @@ namespace Negocio
                                       .Where(c => c.Estado == true).Select(c => new
                                       {
                                           c.PacienteId,
-                                          c.PacienteCombo,
+                                          c.PacienteCombo , 
                                       })
                                       .ToList();
             foreach (var item in clientes)
@@ -41,7 +41,7 @@ namespace Negocio
                 Datos.Add(new CargarCombos()
                 {
                     Valor = item.PacienteId,
-                    Descripcion = item.PacienteCombo
+                    Nombres = item.PacienteCombo,
                 });
             }
 

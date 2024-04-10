@@ -9,7 +9,7 @@ using Negocio.Comun;
 
 namespace Negocio
 {
-    internal class NCita
+    public class NCita
     {
         
             private DCita dCita;
@@ -22,18 +22,24 @@ namespace Negocio
             {
                 return dCita.TodosLasCitas();
             }
-
-            public List<Cita> CitasActivas()
+            public List<Cita> obtenerClientesGrid()
             {
-                return dCita.TodosLasCitas().Where(c => c.Estado == true).ToList();
+                var citas = dCita.TodosLasCitas().Select(c => new { c.CitaId, c.MedicoId, c.Medico.Nombre, c.Paciente.Nombres,c.FechaCita,c.Estado });
+                return dCita.TodosLasCitas().ToList();
             }
-          
-            public int AgregarCita(Cita cita)
+        public List<Cita> CitasActivas()
+            {
+                dCita.TodosLasCitas().Where(c => c.Estado == true).ToList();
+                var citas = dCita.TodosLasCitas().Select(c => new { c.CitaId, c.MedicoId, c.Medico.Nombre, c.Paciente.Nombres, c.FechaCita, c.Estado });
+                return dCita.TodosLasCitas().ToList();
+             }
+
+        public int AgregarCita(Cita cita)
             {
                 return dCita.GuardarCita(cita);
             }
 
-            public int EditarMedicos(Cita cita)
+            public int Editarcita(Cita cita)
             {
                 return dCita.GuardarCita(cita);
             }

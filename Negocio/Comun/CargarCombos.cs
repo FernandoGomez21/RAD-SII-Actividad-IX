@@ -9,6 +9,7 @@ namespace Negocio.Comun
     public class CargarCombos
     {
         public int Valor { get; set; }
-        public string Descripcion { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
     }
 }

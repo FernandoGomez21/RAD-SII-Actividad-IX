@@ -10,12 +10,12 @@ namespace Datos.Core
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly TiendaContext dbcontext;
+        private readonly ClinicaContext dbcontext;
         private DbContextTransaction _transaccion;
 
         public UnitOfWork()
         {
-            this.dbcontext = new TiendaContext();
+            this.dbcontext = new ClinicaContext();
         }
 
         public void ComenzarTransaccion()

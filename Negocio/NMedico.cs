@@ -33,6 +33,7 @@ namespace Negocio
                                       {
                                           c.MedicoId,
                                           c.MedicoCombo,
+
                                       })
                                       .ToList();
             foreach (var item in clientes)
@@ -40,7 +41,9 @@ namespace Negocio
                 Datos.Add(new CargarCombos()
                 {
                     Valor = item.MedicoId,
-                    Descripcion = item.MedicoCombo
+                    Nombres = item.MedicoCombo,
+
+
                 });
             }
 
