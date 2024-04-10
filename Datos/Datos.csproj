@@ -52,6 +52,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDatos\ClinicaContext.cs" />
+    <Compile Include="BaseDatos\Models\Cita.cs" />
+    <Compile Include="BaseDatos\Models\Medico.cs" />
+    <Compile Include="BaseDatos\Models\Paciente.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repository.cs" />
+    <Compile Include="Core\UnitOfWork.cs" />
+    <Compile Include="DCita.cs" />
+    <Compile Include="DMedico.cs" />
+    <Compile Include="DPaciente.cs" />
+    <Compile Include="Migrations\202404092202424_AddTablaMedico.cs" />
+    <Compile Include="Migrations\202404092202424_AddTablaMedico.Designer.cs">
+      <DependentUpon>202404092202424_AddTablaMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202404092203335_AddTablaPaciente.cs" />
+    <Compile Include="Migrations\202404092203335_AddTablaPaciente.Designer.cs">
+      <DependentUpon>202404092203335_AddTablaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202404092205190_AddTablaCita.cs" />
+    <Compile Include="Migrations\202404092205190_AddTablaCita.Designer.cs">
+      <DependentUpon>202404092205190_AddTablaCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202404101654478_CambioTablaMedico.cs" />
+    <Compile Include="Migrations\202404101654478_CambioTablaMedico.Designer.cs">
+      <DependentUpon>202404101654478_CambioTablaMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,7 +86,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BaseDatos\Models\" />
+    <EmbeddedResource Include="Migrations\202404092202424_AddTablaMedico.resx">
+      <DependentUpon>202404092202424_AddTablaMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404092203335_AddTablaPaciente.resx">
+      <DependentUpon>202404092203335_AddTablaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404092205190_AddTablaCita.resx">
+      <DependentUpon>202404092205190_AddTablaCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404101654478_CambioTablaMedico.resx">
+      <DependentUpon>202404101654478_CambioTablaMedico.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
